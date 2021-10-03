@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Tudo sobre Google Glass</title>
+        <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/form.css"/>
+    </head>
+    <script language="javascript" src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById("cqtd").value);
+            tot = qtd * 1500;
+            document.getElementById('ctot').value = tot;
+        }
+    </script>
+    <body>
+        <div id="interface">
+            <header id="cabecalho">
+                <hgroup>
+                    <h1>Google Glass</h1>
+                    <h2> revolução do Google está chegando</h2>
+                </hgroup>
+                
+                <img id="icone" src="_imagens/contato.png"/>
+
+                <nav id="menu">
+                    <h1>Menu Principal</h1>
+                    <ul>
+                        <li onmousemove="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')" ><a href="index.html">Home</a></li>
+                        <li onmousemove="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                        <li onmousemove="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li> 
+                        <li onmousemove="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li> 
+                        <li onmousemove="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li> 
+                    </ul>                    
+                </nav>
+            </header>
+            <section id="corpo-full">
+                <article id="noticia-principal">
+                    <header id="cabecalho-artigo">
+                        <hgroup>
+                            <h3>Glass > Contato</h3>
+                            <h1>Formulário de Contato</h1>
+                            <h2>por Dênerson Pinas</h2>
+                            <h3 class="Direita">Atualizado em 01/Maio/2013</h3>
+                        </hgroup>
+                    </header>
+                    <form method="POST" action="mailto:contato@denersonpinas.com" id="fcontato" oninput="calc_total();">
+                        <fieldset id="usuario">
+                            <legend>Identificação do Usuário</legend>
+                            <p><label for="cnome">Nome: </label> <input type="text" name="tNome" id="cnome" size="20" maxlength="30" placeholder="Nome completo"></p>
+                            <p><label for="csenha">Senha: </label><input type="password" name="tSenha" id="csenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+                            <p><label for="cemaul">E-mail: </label><input type="email" name="tEmail" id="cemail" size="20" maxlength="40"></p>
+                            <fieldset>
+                                <legend>Sexo:</legend>
+                                <input type="radio" name="tSexo" id="cmasc" checked/><label for="cmasc">Masculino</label><br/>
+                                <input type="radio" name="tSexo" id="cfem"/><label for="cfem">Feminino</label>
+                            </fieldset>
+                            <p><label for="cnasc">Data de Nascimento: </label><input type="date" name="tNasc" id="cnasc"></p>
+                        </fieldset>
+
+                        <fieldset id="endereco">
+                            <legend >Endereço do Usuário</legend>
+                            <p><label for="crua">Logradouro: </label><input type="text" name="tRua" id="crua" size="13" maxlength="80" placeholder="Rua, Av., Travessa...."></p>
+                            <p><label for="cnum">Número: </label><input type="number" name="tNum" id="cnum" min="0" max="9999"></p>
+                            <p>
+                                <label for="cest">Estado:</label>
+                                <select name="tEst" id="cest">
+                                    <optgroup label="Região Sudeste">
+                                        <option value="RJ" selected>Rio de Janeiro</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="MG">Minas Gerais</option>
+                                    </optgroup>
+                                    <optgroup label="Região Sul">
+                                        <option value="PR" selected>Paraná</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                    </optgroup>
+                                </select>
+                            </p>
+                            <p><label for="ccid">Cidade:</label><input list="cidades" type="text" name="tCid" id="ccid" size="20" maxlength="40" placeholder="Sua cidade"></p>
+                            <datalist id="cidades">
+                                <option value="Rio de Janeiro"></option>
+                                <option value="Nova Iguaçu"></option>
+                                <option value="Niterói"></option>
+                                <option value="Belford Roxo"></option>
+                            </datalist>
+                        </fieldset>
+
+                        <fieldset id="mensagem">
+                            <legend>Mensagem do Usuário</legend>
+                            <p>
+                                <label for="curg">Grau de Urgência:</label>
+                                Min<input type="range" name="tUrg" id="curg" min="0" max="10">Max
+                            </p>
+                            <p>
+                                <label for="cmsg">Mensagem:</label>
+                                <textarea name="tMsg" id="cmsg" cols="45" rows="5" placeholder="Deixe aqui sua menssagem"></textarea>
+                            </p>
+                        </fieldset>
+
+                        <fieldset id="pedido">
+                            <legend>Quero um Google Glass</legend>
+                            <p>
+                                <input type="checkbox" name="tPed" id="cped" checked>
+                                <label for="cped">Gostaria de adquirir um Google Glass quando disponível</label>
+                            </p>
+                            <p>                                
+                                <label for="ccor">Cor:</label>
+                                <input type="color" name="cCor" id="ccor" value="#0000ff">
+                            </p>
+                            <p>
+                                <label for="cqtd">Quantidade:</label>
+                                <input type="number" name="cQtd" id="cqtd" min="0" max="5" value="0">
+                            </p>
+                            <p>
+                                <label for="ctot">Preço Total: R$</label>
+                                <input type="text" name="cTot" id="ctot" placeholder="Total a Pagar" readonly>
+                            </p>
+                        </fieldset>
+                        <input type="image" src="_imagens/botao-enviar.png" name="tEnviar">
+                    </form>
+                </article>
+            </section>
+            <footer id="rodape">
+                <p>Copyright &copy 2013 - by Dênerson Pinas <br/>
+                <a href="https://www.facebook.com/denersonpinas1/?ref=pages_you_manage" target="_blanck">Facebook</a> |
+                <a href="https://github.com/denersonpinas" target="_blanck">Github</a></p>
+            </footer>
+        </div>
+    </body>
+</html>
